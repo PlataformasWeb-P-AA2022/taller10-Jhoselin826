@@ -8,14 +8,14 @@ urlpatterns = [
             name='obtener_parroquia'),
         path('crear/parroquia', views.crear_parroquia, 
             name='crear_parroquia'),
-        path('editar_parroquia/<int:id>', views.editar_parroquia, 
+        path('editarParroquia/<int:id>', views.editar_parroquia, 
             name='editar_parroquia'),
-        # barrios
-        path('barrio', views.obtener_barrio, 
+        
+        path('barrios', views.obtener_barrio, 
             name='obtener_barrio'),
         path('editar/barrio/<int:id>', views.editar_barrio, 
             name='editar_barrio'),
-        path('crear/barrio/estudiante/<int:id>', 
+        path('crear/barrio/<int:id>', 
             views.crear_barrio_parroquia, 
             name='crear_barrio_parroquia'),
  ]
