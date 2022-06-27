@@ -10,18 +10,18 @@ def index(request):
 
     parroquias = Parroquia.objects.all()
 
-    informacion_template = {'parroquias': parroquias, 'numero_parroquias':len(parroquias)}
+    informacion_template = {'parroquias': parroquias, 'nroParroquias':len(parroquias)}
     return render(request, 'index.html', informacion_template)
     
-def obtener_parroquia(request, id):
+def obtenerParroquia(request, id):
 
     parroquia = Parroquia.objects.get(pk=id)
 
     informacion_template = {'parroquia': parroquia}
-    return render(request, 'obtener_parroquia.html', informacion_template)
+    return render(request, 'obtenerParroquia.html', informacion_template)
 
 # Generar una vista que liste los barrios
-def obtener_barrio(request):
+def obtenerBarrio(request):
 
     barrios = Barrio.objects.all()
 
@@ -29,7 +29,7 @@ def obtener_barrio(request):
     return render(request, 'barrios.html', informacion_template)
 
 # Generar un formulario que cree una parroquia
-def crear_parroquia(request):
+def crearParroquia(request):
 
     if request.method=='POST':
         formulario = ParroquiaForm(request.POST)
@@ -44,7 +44,7 @@ def crear_parroquia(request):
     return render(request, 'crearParroquia.html', diccionario)
 
 # Generar un formulario que cree un barrio de una parroquia
-def crear_barrio_parroquia (request, id):
+def crearBarrioParroquia (request, id):
 
     parroquia = Parroquia.objects.get(pk=id)
     if request.method=='POST':
@@ -60,7 +60,7 @@ def crear_barrio_parroquia (request, id):
     return render(request, 'crearBarrioParroquia.html', diccionario)
 
 # Generar un formulario que edite una parroquia
-def editar_parroquia(request, id):
+def editarParroquia(request, id):
     parroquia = Parroquia.objects.get(pk=id)
     if request.method=='POST':
         formulario = ParroquiaForm(request.POST, instance=parroquia)
@@ -75,7 +75,7 @@ def editar_parroquia(request, id):
     return render(request, 'editarParroquia.html', diccionario)
 
 # Generar un formulario que edite un barrio
-def editar_barrio(request, id):
+def editarBarrio(request, id):
     barrio = Barrio.objects.get(pk=id)
     if request.method=='POST':
         formulario = BarrioForm(request.POST, instance=barrio)
